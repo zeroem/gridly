@@ -56,11 +56,14 @@
   (let [min-r (if min-r min-r max-r)]
     (- x min-r)))
 
+(defn ranges-containing [x rs]
+  (filterv (partial in-range x) rs))
+
 (defn range-containing [x rs]
-  (->> rs
-       (filterv (partial in-range x))
-       ( (fn [rs] (prn rs) rs))
-       first))
+  (let [matching (ranges-containing x rs)]
+    ; Multiple or zero matching ranges is an "undefined" result
+    (if (= (count (take 2 matching)) 1)
+      (first matching))))
 
 (defn linear 
   "Generate a linear interpolation function for the given set of two or more points"
