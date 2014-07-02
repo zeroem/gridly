@@ -1,4 +1,4 @@
-(ns gridly.core)
+(ns gridly.linear)
 
 (defn ordered-set-of-points [points]
   (->> points

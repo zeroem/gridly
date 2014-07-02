@@ -1,6 +1,6 @@
-(ns gridly.core-test
+(ns gridly.linear-test
   (:require [clojure.test :refer :all]
-            [gridly.core :refer :all]))
+            [gridly.linear :refer :all]))
 
 (deftest deltas
   (testing "dx"
